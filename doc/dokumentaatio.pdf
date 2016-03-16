@@ -1,0 +1,19 @@
+Johdanto
+
+Järjestelmän tarkoitus on toimia keskustelufoorumina, joka on jaettu ryhmiin.
+Ryhmässä voi olla monta henkilöä ja henkilö voi kuulua moneen ryhmään.
+Ryhmissä henkilöt voivat avata uuden aiheen tai selata aiempia aiheita ja
+vastata niihin. Aiheista tulostetaan viimeisimmät sivulle, jos hakuehtoja ei
+ole. Aiheita voi myös hakea nimen, ajan ja kirjoittajan perusteella.
+Myös viestejä voi hakea ainakin kirjoittajan perusteella. Moderaattori voi
+perustaa uusia ryhmiä ja määrittää kenellä on oikeudet ryhmään. Moderaattori
+voi myös poistaa ryhmiä, aiheita, sekä viestejä ja muokata eri tunnuksien
+pääsyoikeuksia.
+
+Aiheiden ja viestien on tarkoitus olla lyhyehköjä. Esimerkiksi voisi olla
+ryhmä, joka on "Todennäköisyyslaskenta 1, Kevät 2016" ja siellä aihe "Bayesin
+teoreema" ja henkilö kysyy aiheessa apua tai selvennystä ja henkilöt ko.
+ryhmässä voivat auttaa viestein.
+
+Tarkoitus olisi toteuttaa tämä PHP:lla ja users-palvelimelle. Järjestelmä on
+melko vahvasti sidoksissa tietyn tyyppiseen tietokantaan.
