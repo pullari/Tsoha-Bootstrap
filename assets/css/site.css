@@ -8,3 +8,37 @@
   max-width: 1200px;
   margin: 0px auto;
 }
+
+.signform{
+
+	display:block;
+	max-width: 300px;
+	padding: 20px;
+	margin: 0 auto;
+}
+
+.signform input[type="text"]{
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.signform input[type="password"]{
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.signform button[type="submit"]{
+	width: 79px;
+}
+
+.center{
+	margin: auto;
+	width: 250px;
+	border-bottom: 1px solid;
+	padding: 10px;
+}
+
+
+
+

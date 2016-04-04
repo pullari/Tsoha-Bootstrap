@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<div class="container"> 
+		<p> Tähän sivulle tulee yhden topicin viestit (tai ainakin osa ensimmäisistä ja valikko). Tällä sivulla kuitenkin lukee viestit siten, että topic on ensimmäisenä ja sitä seuraa viestit alaspäin vanhimmasta uusimpaan. Checkbox ja Remove-nappi ovat näkyvissä vain moderaattorille. Checkboxilla valitaan viesti ja napilla poistetaan valitut.</p>
+		<div class="oneTopic">
+
+					<div class="panel-body">
+						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+							<div class="col-md-9"> Topic </div>
+							<div class="col-md-1"> Writer </div>
+							<div class="col-md-1"> Timestamp </div>
+							<div class="col-md-1"></div>
+						</div>
+						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+							<div class="col-md-9"> First Answer to first topic </div>
+							<div class="col-md-1"> Writer </div>
+							<div class="col-md-1"> Timestamp </div>
+							<div class="col-md-1"> <input type="checkbox" value="chosen"></input> </div>
+						</div>
+						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+							<div class="col-md-9"> Second Answer to first topic </div>
+							<div class="col-md-1"> Writer </div>
+							<div class="col-md-1"> Timestamp </div>
+							<div class="col-md-1"> <input type="checkbox" value="chosen"></input> </div>
+						</div>
+						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+							<div class="col-md-9"> Third Answer to first topic </div>
+							<div class="col-md-1"> Writer </div>
+							<div class="col-md-1"> Timestamp </div>
+							<div class="col-md-1"> <input type="checkbox" value="chosen"></input> </div>
+						</div>
+						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+							<div class="col-md-9"> Fourth Answer to first topic </div>
+							<div class="col-md-1"> Writer </div>
+							<div class="col-md-1"> Timestamp </div>
+							<div class="col-md-1"> <input type="checkbox" value="chosen"></input> </div>
+						</div>
+						<div class="row" style="padding: 20px 0px 20px 0px">
+							<div class="col-md-9"> Fifth Answer to first topic </div>
+							<div class="col-md-1"> Writer </div>
+							<div class="col-md-1"> Timestamp </div>
+							<div class="col-md-1"> <input type="checkbox" value="chosen"></input> </div>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newMessage"> Answer </button>
+				<button type="submit" class="btn btn-danger" style="float:right"> Remove </button>
+
+				<div class="modal fade" id="newMessage" role="dialog">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-body">
+								<form role="form">
+									<div class="form-group">
+										<label for="message"> Message: </label>
+										<textarea class="form-control" rows="10" id="message"> </textarea>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-off"></span> Send </button>
+							</div>
+						</div>
+					</div>
+				</div>
+	</div>
+	
+  
+{% endblock %}

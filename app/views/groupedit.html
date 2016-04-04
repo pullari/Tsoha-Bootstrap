@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<div class="container"> 
+		<p> Tälle sivulle pääsee vain moderaattori. Sivulle tulostetaan kaikki ryhmän jäsenet ja halutessaan mode voi valita jäseniä ja poistaa yksittäisiä ryhmästä, tai sitten Remove Group -napilla poistaa koko ryhmän</p>
+
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newMessage"> Add new </button> 
+		<button type="submit" class="btn btn-danger" style="float:left; margin-right: 20px"> Remove </button>
+		<button type="submit" class="btn btn-danger" style="float:right"> Remove Group </button>
+
+		<div class="center">
+			<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+				<div class="col-md-3"> Username </div>
+				<div class="col-md-1" style="float: right"> <input type="checkbox" value="chosen"></input> </div>
+			</div>
+			<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+				<div class="col-md-3"> Username </div>
+				<div class="col-md-1" style="float: right"> <input type="checkbox" value="chosen"></input> </div>
+			</div>
+			<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+				<div class="col-md-3"> Username </div>
+				<div class="col-md-1" style="float: right"> <input type="checkbox" value="chosen"></input> </div>
+			</div>
+			<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+				<div class="col-md-3"> Username </div>
+				<div class="col-md-1" style="float: right"> <input type="checkbox" value="chosen"></input> </div>
+			</div>
+			<div class="row" style="padding: 20px 0px 20px 0px">
+				<div class="col-md-3"> Username </div>
+				<div class="col-md-1" style="float: right"> <input type="checkbox" value="chosen"></input> </div> 
+			</div>
+		</div>
+		
+				<div class="modal fade" id="newMessage" role="dialog">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-body">
+								<form role="form">
+									<div class="form-group">
+										<label for="username"> username: </label>
+										<input type="text" class="form-control" id="username"> </input>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-off"></span> Send </button>
+							</div>
+						</div>
+					</div>
+				</div>
+	</div>
+{% endblock %}

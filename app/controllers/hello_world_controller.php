@@ -13,6 +13,18 @@
 
     public static function sandbox(){
       // Testaa koodiasi täällä
-      echo 'Hello World!';
+      View::make('helloworld.html');
+    }
+
+    public static function groups(){
+      View::make('groups.html');
+    }
+
+    public static function topic(){
+      View::make('topic.html');
+    }
+
+    public static function gedit(){
+      View::make('groupedit.html');
     }
   }

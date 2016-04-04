@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-
 {% block content %}
   <div class="form-group">
-	  <form>
-	  		<h2> Sign in information </h2>
-	  		<input type="text" class="form-control" id="nickname" placeholder="nickname">
-	  		<input type="password" class="form-control" id="password" placeholder="password">
+	  <form class="signform">
+	  		<h2 class="text-center"> Sign in information </h2>
+	  		<label for="nickname" class="sr-only"> nick </label>
+	  		<input type="text" class="form-control" id="nickname" placeholder="nickname" required>
+	  		<label for="password" class="sr-only"> pass </label>
+	  		<input type="password" class="form-control" id="password" placeholder="password" required>
+	  		<p> </p>
 	  		<button type="submit" class="btn btn-primary"> Sign in </button>
-	  		<label> or </label>
-	  		<a class="btn btn-primary" href="#" role="button"> Register </a>
+	  		<a class="btn btn-success" href="#" role="button"> Register </a>
 	  </form>
   </div>
-  {% endblock %}
+{% endblock %}
