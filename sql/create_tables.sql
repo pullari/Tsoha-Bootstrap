@@ -7,7 +7,7 @@ CREATE TABLE Account(
 	isMod boolean NOT NULL DEFAULT FALSE
 );
 
-CREATE TABLE Group(
+CREATE TABLE Ryhma(
 
 	id SERIAL PRIMARY KEY,
 	name varchar(30) NOT NULL
@@ -16,19 +16,19 @@ CREATE TABLE Group(
 CREATE TABLE AccountGroup(
 
 	accoID INTEGER REFERENCES Account(id),
-	groupID INTEGER REFERENCES Group(id)
+	groupID INTEGER REFERENCES Ryhma(id)
 );
 
 CREATE TABLE Topic(
 
 	id SERIAL PRIMARY KEY,
-	groupID INTEGER REFERENCES Group(id)
+	groupID INTEGER REFERENCES Ryhma(id)
 );
 
 CREATE TABLE Message(
 
 	id SERIAL PRIMARY KEY,
-	postTime datetime DEFAULT now(),
+	postTime timestamp DEFAULT now(),
 	topicID INTEGER REFERENCES Topic(id),
 	accoID INTEGER REFERENCES Account(id),
 	content varchar(400) NOT NULL
