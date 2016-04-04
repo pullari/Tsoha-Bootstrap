@@ -1,11 +1,15 @@
 # Tietokantasovelluksen esittelysivu
 
-Yleisiä linkkejä:
+Yleisiä linkkelä:
 
 * [Linkki sovellukseeni](http://samrouvi.users.cs.helsinki.fi/foorumi/)
 * [Linkki dokumentaatiooni](https://github.com/pullari/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
+* [Linkki etu/loginsivun staattiseen malliin](http://samrouvi.users.cs.helsinki.fi/foorumi/login)
+* [Linkki Ryhmänvalinta ja topic:ien näyttö sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/groups)
+* [Linkki yksittäisen topicin sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/topic)
+* [Linkki ryhmän muokkaus sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/edit)
 
-## Työn aihe
+## Tyän aihe
 
 Linkki aiheeseen: [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Keskustelufoorumi.html) 
-P��osin toteutan samanlaista keskustelufoorumia. Keskustelufoorumi tulisi pohjautumunaan ryhmiin joihin moderaattori sallii p��syn ja ryhmiss� keskustelu tulee olemaan tarkoitettu lyhyemmille viesteille, joihin voi vastata. T�llaisia voisi olla esimerkiksi avun kysynt� jossakin teht�v�ss�.
+Pääosin toteutan samanlaista keskustelufoorumia. Keskustelufoorumi tulisi pohjautumunaan ryhmiin joihin moderaattori sallii pääsyn ja ryhmissä keskustelu tulee olemaan tarkoitettu lyhyemmille viesteille, joihin voi vastata. Tällaisia voisi olla esimerkiksi avun kysyntä jossakin tehtävässä.
