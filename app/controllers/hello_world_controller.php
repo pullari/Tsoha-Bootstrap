@@ -8,7 +8,7 @@
     }
 
     public static function login(){
-      View::make('login.html');
+      View::make('suunnitelmat/login.html');
     }
 
     public static function sandbox(){
@@ -17,14 +17,14 @@
     }
 
     public static function groups(){
-      View::make('groups.html');
+      View::make('suunnitelmat/groups.html');
     }
 
     public static function topic(){
-      View::make('topic.html');
+      View::make('suunnitelmat/topic.html');
     }
 
     public static function gedit(){
-      View::make('groupedit.html');
+      View::make('suunnitelmat/groupedit.html');
     }
   }
