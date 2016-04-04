@@ -2,7 +2,7 @@
 {% block content %}
 
 	<div class="container"> 
-		<p> Tähän näkymään tulee dropdown valikko, josta valitset jonkin ryhmistä johon kuulut. Valinnan tehtyäsi alas tulostaa ryhmän topicit (esim aakkosjärjestksessä ja korkeintaan 10 kerrallaan. Alas tulee valikko josta voi valita seuraavat 10). Yhdestä topicista Näytetään 5 uusinta viestiä ja ainakin kirjoittaja ja aikaleima. Mahdollisesti myös onko käyttäjä sen lukenut. Topicin alapuolella on open-nappi joka ohjaa topiciin, jossa näytetään kaikki viestit (tai esim. 10 ensimmäistä ja valikko) ja jossa topiciin voi vastata. Remove-nappi poistaa koko topicin ja se tulee käyttöön vain mikäli sikäli käyttäjä on moderaattori. Edit Group -nappi on myös näkyvillä vain modeille ja se vie omalle sivulleen.</p>
+		<p> Tähän näkymään tulee dropdown valikko, josta valitset jonkin ryhmistä johon kuulut. Valinnan tehtyäsi alas tulostaa ryhmän topicit (esim aakkosjärjestksessä ja korkeintaan 10 kerrallaan. Alas tulee valikko josta voi valita seuraavat 10). Yhdestä topicista Näytetään 5 uusinta viestiä ja ainakin kirjoittaja ja aikaleima. Mahdollisesti myös onko käyttäjä sen lukenut. Topicin alapuolella on open-nappi joka ohjaa topiciin, jossa näytetään kaikki viestit (tai esim. 10 ensimmäistä ja valikko) ja jossa topiciin voi vastata. New Topic -nappi on myös näkyvissä kaikille ja sillä saa luotua uuden topicin (lisään bootstrap Modal-ikkunan). Remove-nappi poistaa koko topicin ja se tulee käyttöön vain mikäli sikäli käyttäjä on moderaattori. Edit Group -nappi on myös näkyvillä vain modeille ja se vie omalle sivulleen.</p>
 		<div class="dropdown">
 			<button class="btn btn-default dropdown-toggle" type="button" id="groupMenu" data-toggle="dropdown"> Groups <span class="caret"></span></button>
 			
@@ -15,7 +15,10 @@
 			</ul>
 		</div>
 	<div class="groupView">
-		<h3> Name of group <button type="submit" class="btn btn-warning" style="float:right"> Edit Group </button></h3>
+		<h3> Name of group 
+			<button type="submit" class="btn btn-warning" style="float:right"> Edit Group </button>
+			<button type="submit" class="btn btn-success" style="float:right"> New Topic </button>
+		</h3>
 		
 		<div class="oneGroup">
 				<div class="panel panel-default">
