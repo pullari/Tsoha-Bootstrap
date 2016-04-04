@@ -9,7 +9,7 @@ Yleisiä linkkelä:
 * [Linkki yksittäisen topicin sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/topic)
 * [Linkki ryhmän muokkaus sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/edit)
 
-## Tyän aihe
+## Työn aihe
 
 Linkki aiheeseen: [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Keskustelufoorumi.html) 
 Pääosin toteutan samanlaista keskustelufoorumia. Keskustelufoorumi tulisi pohjautumunaan ryhmiin joihin moderaattori sallii pääsyn ja ryhmissä keskustelu tulee olemaan tarkoitettu lyhyemmille viesteille, joihin voi vastata. Tällaisia voisi olla esimerkiksi avun kysyntä jossakin tehtävässä.
