@@ -1,6 +1,6 @@
 # Tietokantasovelluksen esittelysivu
 
-Yleisiä linkkelä:
+Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://samrouvi.users.cs.helsinki.fi/foorumi/)
 * [Linkki dokumentaatiooni](https://github.com/pullari/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
@@ -8,6 +8,7 @@ Yleisiä linkkelä:
 * [Linkki Ryhmänvalinta ja topic:ien näyttö sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/groups)
 * [Linkki yksittäisen topicin sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/topic)
 * [Linkki ryhmän muokkaus sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/edit)
+* Sivut löytyvät myös foorumin navbarista
 
 ## Työn aihe
 
