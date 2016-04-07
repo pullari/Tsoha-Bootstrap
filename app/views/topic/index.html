@@ -33,15 +33,15 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-body">
-						<form role="form">
+						<form role="form" method="post" action="{{base_path}}/topic/{{messages[0].topicid}}">
 							<div class="form-group">
 								<label for="message"> Message: </label>
-								<textarea class="form-control" rows="10" id="message"> </textarea>
+								<textarea class="form-control" rows="10" id="message" name="content"> </textarea>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send"></span> Send </button>
+								</div>
 							</div>
 						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send"></span> Send </button>
 					</div>
 				</div>
 			</div>

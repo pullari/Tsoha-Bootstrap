@@ -72,4 +72,14 @@ class Message extends BaseModel{
 		}
 		return $messages;
 	}
+
+	public function save(){
+
+		$query = DB::connection()->prepare('INSERT INTO Message(topicid, accoid, content) VALUES (:topicid, 1, :content) RETURNING id, posttime');
+		$query->execute(array('topicid' => $this->topicid, 'content' => $this->content));
+		$row = $query->fetch();
+
+		$this->id = $row['id'];
+		$this->posttime = $row['posttime'];
+	}
 }

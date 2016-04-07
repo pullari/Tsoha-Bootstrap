@@ -32,3 +32,7 @@
     TopicController::show($id);
   });
 
+  $routes->post('/topic/:id', function($id){
+    TopicController::store($id);
+  });
+
