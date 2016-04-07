@@ -16,10 +16,19 @@
   	HelloWorldController::groups();
   });
 
-  $routes->get('/topic', function(){
+  $routes->get('/topicTest', function(){
     HelloWorldController::topic();
   });
 
   $routes->get('/edit', function(){
     HelloWorldController::gedit();
   });
+
+  $routes->get('/topic', function(){
+    TopicController::index();
+  });
+
+  $routes->get('/topic/:id', function($id){
+    TopicController::show($id);
+  });
+

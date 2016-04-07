@@ -9,3 +9,4 @@ INSERT INTO AccountGroup (accoID, groupID) VALUES (1, 1);
 INSERT INTO Topic (groupID) VALUES (1);
 
 INSERT INTO Message (topicID, accoID, content) VALUES (1, 1, 'Testi viesti');
+INSERT INTO Message (topicID, accoID, content) VALUES (1, 2, 'Sivupohjan testausviesti numero dos');

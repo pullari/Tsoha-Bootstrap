@@ -1,5 +1,5 @@
 <?php
-
+  //require 'app/models/message.php';
   class HelloWorldController extends BaseController{
 
     public static function index(){
@@ -13,7 +13,13 @@
 
     public static function sandbox(){
       // Testaa koodiasi täällä
-      View::make('helloworld.html');
+     // View::make('helloworld.html');
+      $messages = Message::all();
+      $message = Message::find(1);
+      $messages = Message::findAllFromTopic(1);
+
+      Kint::dump($messages);
+      Kint::dump($message);
     }
 
     public static function groups(){

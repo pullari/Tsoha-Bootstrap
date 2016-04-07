@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<div class="container"> 
+		<p> Tämä on testi topic vain testi viestillä</p>
+		<div class="oneTopic">
+
+			<div class="panel-body">
+				<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">						<div class="col-md-7"> {{messages[0].topicid}} </div>
+					<div class="col-md-2"> Writer </div>
+					<div class="col-md-2"> Timestamp </div>
+					<div class="col-md-1"></div>
+				</div>
+
+				{% for message in messages %}
+
+				<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+					<div class="col-md-7"> {{message.content}} </div>
+					<div class="col-md-2"> {{message.accoid}} </div>
+					<div class="col-md-2"> {{message.posttime}} </div>
+					<div class="col-md-1"> <input type="checkbox" value="chosen"></input> </div>
+				</div>
+
+				{% endfor %}
+
+			</div>
+		</div>
+		
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newMessage"> Answer </button>
+		<button type="submit" class="btn btn-danger" style="float:right"> Remove </button>
+
+		<div class="modal fade" id="newMessage" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<form role="form">
+							<div class="form-group">
+								<label for="message"> Message: </label>
+								<textarea class="form-control" rows="10" id="message"> </textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send"></span> Send </button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
