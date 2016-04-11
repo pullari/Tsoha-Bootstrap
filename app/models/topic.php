@@ -1,8 +1,8 @@
 <?php
 
-public $id, $groupid;
-
 class Topic extends BaseModel{
+
+	public $id, $groupid;
 
 	public function __construct($attributes){
 		parent::__construct($attributes);
@@ -39,6 +39,9 @@ class Topic extends BaseModel{
 				'id' => $row['id'];
 				'groupid' => $row['groupid'];
 			));
+
+			return $topic;
 		}
+		return null;
 	}
 }

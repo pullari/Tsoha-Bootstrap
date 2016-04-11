@@ -12,7 +12,7 @@
   	HelloWorldController::login();
   });
 
-  $routes->get('/groups', function(){
+  $routes->get('/groupsTest', function(){
   	HelloWorldController::groups();
   });
 
@@ -24,9 +24,7 @@
     HelloWorldController::gedit();
   });
 
-  $routes->get('/topic', function(){
-    TopicController::index();
-  });
+  //HelloWorldControlleria käyttävät polut ovat kaikki suunnitelmia, alempana on polkuja varsinaisiin toteutuksiin
 
   $routes->get('/topic/:id', function($id){
     TopicController::show($id);
@@ -34,5 +32,13 @@
 
   $routes->post('/topic/:id', function($id){
     TopicController::store($id);
+  });
+
+  $routes->get('/groups', function(){
+    GroupController::all();
+  });
+
+  $routes->get('/groups/edit/:id', function($id){
+    GroupController::edit($id);
   });
 

@@ -8,17 +8,19 @@ class Message extends BaseModel{
 		parent::__construct($attributes);
 	}
 
+	public static function echoName(){
+		return 'name';
+	}
+
 	public static function all(){
 
 		$query = DB::connection()->prepare('SELECT * FROM Message');
-
 		$query->execute();
 
 		$rows = $query->fetchAll();
 		$messages = array();
 
-		foreach ($rows as $row) {
-			
+		foreach ($rows as $row) {		
 			$messages[] = new Message(array(
 				'id' => $row['id'],
 				'posttime' => $row['posttime'],
@@ -33,10 +35,9 @@ class Message extends BaseModel{
 	public static function find($id){
 
 		$query = DB::connection()->prepare('SELECT * FROM Message WHERE id = :id LIMIT 1');
-
 		$query->execute(array('id' => $id));
-		$row = $query->fetch();
 
+		$row = $query->fetch();
 		if($row){
 
 			$message = new Message(array(
@@ -54,10 +55,9 @@ class Message extends BaseModel{
 	public static function findAllFromTopic($id){
 
 		$query = DB::connection()->prepare('SELECT * FROM Message WHERE topicID = :id');
-
 		$query->execute(array('id' => $id));
-		$rows = $query->fetchAll();
 
+		$rows = $query->fetchAll();
 		$messages = array();
 
 		foreach ($rows as $row) {
@@ -70,6 +70,7 @@ class Message extends BaseModel{
 				'content' => $row['content']
 			));
 		}
+		
 		return $messages;
 	}
 
