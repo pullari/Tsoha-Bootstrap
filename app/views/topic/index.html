@@ -2,6 +2,12 @@
 {% block content %}
 
 	<div class="container"> 
+
+		{% if message %}
+			<div class="alert alert-success">
+				{{message}}
+			</div>
+		{% endif %}
 		<p> Tämä on testi topic vain testi viestillä</p>
 		<div class="oneTopic">
 
