@@ -1,7 +1,7 @@
 <?php
 
   $routes->get('/', function() {
-    HelloWorldController::index();
+    HelloWorldController::groups();
   });
 
   $routes->get('/hiekkalaatikko', function() {
@@ -38,7 +38,15 @@
     GroupController::all();
   });
 
-  $routes->get('/groups/edit/:id', function($id){
+  $routes->get('/groups/:id', function($id){
+    GroupController::find($id);
+  });
+
+  $routes->post('/groups/:id', function($id){
+    GroupController::store($id);
+  });
+
+  $routes->get('/groups/:id/edit', function($id){
     GroupController::edit($id);
   });
 

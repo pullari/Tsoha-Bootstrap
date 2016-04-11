@@ -9,63 +9,70 @@
 			<ul class="dropdown-menu" role="menu" aria-labelledby="Groups">
 
 			{% for group in groups %}
-			<li> <a role="menuitem" tabindex="0" href="#"> {{group.name}} </a></li>
+			<li> <a role="menuitem" tabindex="0" href="{{base_path}}/groups/{{group.id}}"> {{group.name}} </a></li>
 			{% endfor %}
 
 			</ul>
 		</div>
 	<div class="groupView">
 
-		<h3> Name of group 
-			<button type="submit" class="btn btn-warning" style="float:right"> Edit Group </button>
-			<button type="submit" class="btn btn-success" style="float:right"> New Topic </button>
+		<h3> {{show.name}}
+			<a href="{{base_path}}/groups/{{show.id}}/edit"> <button type="submit" class="btn btn-warning" style="float:right"> Edit Group </button> </a>
+			<button type="button" class="btn btn-success" style="float:right" data-toggle="modal" data-target="#newTopic"> New Topic </button>
 		</h3>
-		
-		{% for group in groups %}
 
-		<div class="oneGroup">
+		{% for topic in topics %}
+
+		<div class="oneTopic">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row" style="padding: 20px 0px 20px 0px">
-							<div class="col-md-10"> First topic </div>
-							<div class="col-md-1"> Writer </div>
-							<div class="col-md-1"> Timestamp </div>
+							<div class="col-md-7"> {{messages[topic.id][0].content}} </div>
+							<div class="col-md-2"> Writer </div>
+							<div class="col-md-2"> {{messages[topic.id][0].posttime}} </div>
+							<div class="col-md-1"> </div>
 						</div>
 					</div>
 
 					<div class="panel-body">
+
+					{% for message in messages[topic.id] %}
+						{% if message != messages[topic.id][0] %}
 						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
-							<div class="col-md-10"> Answer to first topic </div>
-							<div class="col-md-1"> Writer </div>
-							<div class="col-md-1"> Timestamp </div>
+							<div class="col-md-7"> {{message.content}}</div>
+							<div class="col-md-2"> Writer </div>
+							<div class="col-md-2"> {{message.posttime}} </div>
+							<div class="col-md-1"> </div>
 						</div>
-						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
-							<div class="col-md-10"> Second Answer to first topic </div>
-							<div class="col-md-1"> Writer </div>
-							<div class="col-md-1"> Timestamp </div>
-						</div>
-						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
-							<div class="col-md-10"> Third Answer to first topic </div>
-							<div class="col-md-1"> Writer </div>
-							<div class="col-md-1"> Timestamp </div>
-						</div>
-						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
-							<div class="col-md-10"> Fourth Answer to first topic </div>
-							<div class="col-md-1"> Writer </div>
-							<div class="col-md-1"> Timestamp </div>
-						</div>
-						<div class="row" style="padding: 20px 0px 20px 0px">
-							<div class="col-md-10"> Fifth Answer to first topic </div>
-							<div class="col-md-1"> Writer </div>
-							<div class="col-md-1"> Timestamp </div>
-						</div>
+						{% endif %}
+					{% endfor %}
 					</div>
 				</div>
-				<a class="btn btn-primary" href="#" role="button"> Open </a>
+				<a class="btn btn-primary" href="{{base_path}}/topic/{{topic.id}}" role="button"> Open </a>
 				<button type="submit" class="btn btn-danger" style="float:right"> Remove </button>
 				<div style="padding-bottom: 40px"> </div>
 		</div>
+
 		{% endfor %}
+
+		<div class="modal fade" id="newTopic" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<form role="form" method="post" action="{{base_path}}/groups/{{show.id}}">
+							<div class="form-group">
+								<label for="message"> Message: </label>
+								<textarea class="form-control" rows="10" id="topic" name="topicContent"> </textarea>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send"></span> Send </button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 	
   
