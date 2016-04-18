@@ -34,8 +34,11 @@
 							<div class="col-md-2"> {{message.accoid}} </div>
 							<div class="col-md-2"> {{message.posttime}} </div>
 							{% if account %}
+								{% if account.id == message.accoid %}
+									<button class="btn btn-primary"> Edit </button>
+								{% endif %}
 								{% if account.ismod %}
-									<div class="col-md-1"> <button type="submit" class="btn btn-danger" style="float:right"> Remove </button> </div>
+									<div class="col-md-1"> <button type="submit" class="btn btn-danger"> Remove </button> </div>
 								{% endif %}
 							{% endif %}
 						</div>
