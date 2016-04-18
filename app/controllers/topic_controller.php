@@ -25,7 +25,15 @@ class TopicController extends BaseController{
 			'accoid' => 1   //accoid on vielä kovakoodattu koska sisäänkirjautumista ei ole tehty
 		));
 
-		$message->save();
-		Redirect::to('/topic/' . $message->topicid, array('message' => 'postattu'));
+		$errors = $message->errors();
+
+		if(count($errors) == 0){
+
+			$message->save();
+			Redirect::to('/topic/' . $message->topicid, array('message' => 'postattu'));
+		}else{
+			Redirect::to('/topic/' . $message->topicid, array('errors' => $errors));
+		}
+	
 	}
 }

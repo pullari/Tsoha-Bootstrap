@@ -8,6 +8,15 @@
 				{{message}}
 			</div>
 		{% endif %}
+
+		{% if errors %}
+			{% for error in errors %}
+				<div class="alert alert-danger">
+					{{error}}
+				</div>
+			{% endfor %}
+		{% endif %}
+
 		<p> Tämä on testi topic vain testi viestillä</p>
 		<div class="oneTopic">
 
@@ -42,7 +51,7 @@
 						<form role="form" method="post" action="{{base_path}}/topic/{{messages[0].topicid}}">
 							<div class="form-group">
 								<label for="message"> Message: </label>
-								<textarea class="form-control" rows="10" id="message" name="content"> </textarea>
+								<textarea class="form-control" rows="10" id="message" name="content"></textarea>
 								<div class="modal-footer">
 									<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send"></span> Send </button>
 								</div>

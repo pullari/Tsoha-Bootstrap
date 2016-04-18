@@ -42,24 +42,30 @@ class GroupController extends BaseController{
 
 		$params = $_POST;
 
-
-
 		$topic = new Topic(array(  //tehdään uusi tyhjä topic ja alempana lisätään alkuviesti
 			'groupid' => $id
 		));
 
-		$topic->save();
 
-		$message =  new Message(array(
+		$dummyMessage = new Message(array(        //koska messagen luonti luottaa siihen että topic on jo luotu
+			'content' => $params['topicContent']  //emmekä halua tyhjjiä topiceja luomme viestistä tyngän jossa
+		));										  //on vain virheen tarkistuksen kannalta olennainen osa
+		$errors = $dummyMessage->errors();
+		if(count($errors) != 0){
+			Redirect::to('/groups/' . $topic->groupid, array('errors' => $errors));
+		}else{
 
-			'topicid' => $topic->id,
-			'content' => $params['topicContent'],
-			'accoid' => 1   //accoid on vielä kovakoodattu koska sisäänkirjautumista ei ole tehty
-		));
+			$topic->save();
 
-		$message->save();
+			$message =  new Message(array(
 
-		Redirect::to('/groups/' . $topic->groupid, array('message' => 'topic avattu'));
-		Kint::dump($params);
+				'topicid' => $topic->id,
+				'content' => $params['topicContent'],
+				'accoid' => 1   //accoid on vielä kovakoodattu koska sisäänkirjautumista ei ole tehty
+			));
+
+			$message->save();
+			Redirect::to('/groups/' . $topic->groupid, array('message' => 'topic avattu'));
+		}
 	}
 }

@@ -14,12 +14,16 @@
     public static function sandbox(){
       // Testaa koodiasi täällä
      // View::make('helloworld.html');
-      $messages = Message::all();
-      $message = Message::find(1);
-      $messages = Message::findAllFromTopic(1);
+      $message = new Message(array(
+        'id' => '15',
+        'topicid' => '1',
+        'accoid' => '1',
+        'posttime' => 'tänää',
+        'content' => 'asd'
+      ));
 
-      Kint::dump($messages);
-      Kint::dump($message);
+      $errors = $message->errors();
+      Kint::dump($errors);
     }
 
     public static function groups(){

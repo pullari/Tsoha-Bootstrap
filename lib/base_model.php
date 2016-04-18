@@ -18,12 +18,22 @@
     public function errors(){
       // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
       $errors = array();
-
       foreach($this->validators as $validator){
         // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
+;
+        $err = $this->{$validator}();
+        $errors = array_merge($errors, $err);
       }
 
       return $errors;
     }
 
-  }
+    public function validateString($string, $length){
+
+      $errors = array();
+      if(strlen($string) < $length){
+        $errors[] = 'Antamasi merkkijono on liian lyhyt. Min: '.$length. ' merkkiä';
+      }
+      return $errors;
+    }
+}

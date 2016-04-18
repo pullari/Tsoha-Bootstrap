@@ -1,11 +1,11 @@
 <?php
-
 class Message extends BaseModel{
 
 	public $id, $posttime, $topicid, $accoid, $content;
 
 	public function __construct($attributes){
 		parent::__construct($attributes);
+		$this->validators = array('messageValidate');
 	}
 
 	public static function echoName(){
@@ -82,5 +82,12 @@ class Message extends BaseModel{
 
 		$this->id = $row['id'];
 		$this->posttime = $row['posttime'];
+	}
+
+	public function messageValidate(){
+
+		$errors = array();
+		$errors = parent::validateString($this->content, '5');
+		return $errors;
 	}
 }
