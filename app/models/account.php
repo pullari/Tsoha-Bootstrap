@@ -30,4 +30,25 @@ class Account extends BaseModel{
 		return null;
 	}
 
+	public static function authenticate($nick, $pass) {
+
+		$query = DB::connection()->prepare('SELECT * FROM Account WHERE username = :nick AND password = :pass LIMIT 1');
+		$query->execute(array('nick' => $nick, 'pass' => $pass));
+
+		$row = $query->fetch();
+
+		if($row){
+
+			$account = new Account(array(
+
+				'id' => $row['id'],
+				'username' => $row['username'],
+				'password' => $row['password'],
+				'ismod' => $row['ismod']
+			));
+
+			return $account;
+		}
+		return null;
+	}
 }

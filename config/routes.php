@@ -8,7 +8,7 @@
     HelloWorldController::sandbox();
   });
 
-  $routes->get('/login', function() {
+  $routes->get('/loginTest', function() {
   	HelloWorldController::login();
   });
 
@@ -56,4 +56,12 @@
 
   $routes->post('/removeMessage/:id', function($id){
     TopicController::removeMessage($id);
+  });
+
+  $routes->get('/login', function(){
+    AccountController::login();
+  });
+
+  $routes->post('/login', function(){
+    AccountController::handleLogin();
   });
