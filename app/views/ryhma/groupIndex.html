@@ -62,7 +62,9 @@
 					</div>
 				</div>
 				<a class="btn btn-primary" href="{{base_path}}/topic/{{topic.id}}" role="button"> Open </a>
-				<button type="submit" class="btn btn-danger" style="float:right"> Remove </button>
+				<form method="post" action="{{base_path}}/remove/{{topic.id}}">
+					<button class="btn btn-danger" role="button" type="submit" style="float:right"> Remove </button>	
+				</form>
 				<div style="padding-bottom: 40px"> </div>
 		</div>
 

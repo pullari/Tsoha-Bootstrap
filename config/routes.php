@@ -50,3 +50,10 @@
     GroupController::edit($id);
   });
 
+  $routes->post('/remove/:id', function($id){
+    GroupController::removeTopic($id);
+  });
+
+  $routes->post('/removeMessage/:id', function($id){
+    TopicController::removeMessage($id);
+  });

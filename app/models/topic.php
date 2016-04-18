@@ -54,6 +54,17 @@ class Topic extends BaseModel{
 		return null;
 	}
 
+	public static function destroy($id){
+
+		$query = DB::connection()->prepare('DELETE FROM Topic WHERE id = :id RETURNING groupid');
+		$query->execute(array('id' => $id));
+
+		$row = $query->fetch();
+		$groupid = $row['groupid'];
+
+		return $groupid;
+	}
+
 	public static function findByGroup($id){
 
 		$query = DB::connection()->prepare('SELECT * FROM Topic WHERE groupid = :id');

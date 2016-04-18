@@ -15,7 +15,7 @@ class TopicController extends BaseController{
 		View::make('topic/index.html', array('messages' => $messages));
 	}
 
-	public static function store($id){
+	public static function store($id) {
 
 		$params = $_POST;
 
@@ -34,6 +34,14 @@ class TopicController extends BaseController{
 		}else{
 			Redirect::to('/topic/' . $message->topicid, array('errors' => $errors));
 		}
-	
+	}
+
+	public static function removeMessage($id) {
+
+		$message = new Message(array(
+			'id' => $id
+		));
+		$topicid = $message->destroy($id);
+		Redirect::to('/topic/' . $topicid, array('message' => 'viesti poistettu'));
 	}
 }

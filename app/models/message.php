@@ -74,6 +74,17 @@ class Message extends BaseModel{
 		return $messages;
 	}
 
+	public static function destroy($id){
+
+		$query = DB::connection()->prepare('DELETE FROM Message WHERE id = :id RETURNING topicid');
+		$query->execute(array('id' => $id));
+
+		$row = $query->fetch();
+		$topicid = $row['topicid'];
+
+		return $topicid;
+	}
+
 	public function save(){
 
 		$query = DB::connection()->prepare('INSERT INTO Message(topicid, accoid, content) VALUES (:topicid, 1, :content) RETURNING id, posttime');

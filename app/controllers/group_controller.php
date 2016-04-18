@@ -68,4 +68,13 @@ class GroupController extends BaseController{
 			Redirect::to('/groups/' . $topic->groupid, array('message' => 'topic avattu'));
 		}
 	}
+
+	public static function removeTopic($id) {
+
+		$topic = new Topic(array(
+			'id' => $id
+		));
+		$groupid = $topic->destroy($id);
+		Redirect::to('/groups/' . $groupid, array('message' => 'topic poistettu'));
+	}
 }

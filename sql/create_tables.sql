@@ -22,14 +22,14 @@ CREATE TABLE AccountGroup(
 CREATE TABLE Topic(
 
 	id SERIAL PRIMARY KEY,
-	groupID INTEGER REFERENCES Ryhma(id)
+	groupID INTEGER REFERENCES Ryhma(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Message(
 
 	id SERIAL PRIMARY KEY,
 	postTime timestamp DEFAULT now(),
-	topicID INTEGER REFERENCES Topic(id),
+	topicID INTEGER REFERENCES Topic(id) ON DELETE CASCADE,
 	accoID INTEGER REFERENCES Account(id),
 	content varchar(400) NOT NULL
 );

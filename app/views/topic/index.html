@@ -28,21 +28,19 @@
 				</div>
 
 				{% for message in messages %}
-
-				<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
-					<div class="col-md-7"> {{message.content}} </div>
-					<div class="col-md-2"> {{message.accoid}} </div>
-					<div class="col-md-2"> {{message.posttime}} </div>
-					<div class="col-md-1"> <input type="checkbox" value="chosen"></input> </div>
-				</div>
-
+					<form method="post" action="{{base_path}}/removeMessage/{{message.id}}">
+						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
+							<div class="col-md-7"> {{message.content}} </div>
+							<div class="col-md-2"> {{message.accoid}} </div>
+							<div class="col-md-2"> {{message.posttime}} </div>
+							<div class="col-md-1"> <button type="submit" class="btn btn-danger" style="float:right"> Remove </button> </div>
+						</div>
+					</form>
 				{% endfor %}
-
 			</div>
 		</div>
 		
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newMessage"> Answer </button>
-		<button type="submit" class="btn btn-danger" style="float:right"> Remove </button>
 
 		<div class="modal fade" id="newMessage" role="dialog">
 			<div class="modal-dialog">
