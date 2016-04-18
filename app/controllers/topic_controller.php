@@ -11,8 +11,9 @@ class TopicController extends BaseController{
 
 	public static function show($id){
 
+		$account = TopicController::get_user_logged_in();
 		$messages = Message::findAllFromTopic($id);
-		View::make('topic/index.html', array('messages' => $messages));
+		View::make('topic/index.html', array('messages' => $messages, 'account' => $account));
 	}
 
 	public static function store($id) {

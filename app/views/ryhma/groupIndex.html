@@ -22,16 +22,23 @@
 			</div>
 		{% endif %}
 
-		{% if errors %}
-			{% for error in errors %}
-	    		<div class="alert alert-danger">
-	    			{{error}}
-	    		</div>
-    		{% endfor %}
-		{% endif %}
 		<h3> {{show.name}}
-			<a href="{{base_path}}/groups/{{show.id}}/edit"> <button type="submit" class="btn btn-warning" style="float:right"> Edit Group </button> </a>
-			<button type="button" class="btn btn-success" style="float:right" data-toggle="modal" data-target="#newTopic"> New Topic </button>
+
+		{% if errors %}
+			{% for error in errors%}
+				<div class="alert alert-danger">
+					{{error}}
+				</div>
+			{% endfor %}
+		{% endif %}
+
+		{% if account %}
+			{% if account.ismod %}
+				<a href="{{base_path}}/groups/{{show.id}}/edit"> <button type="submit" class="btn btn-warning" style="float:right"> Edit Group </button> </a>
+				<button type="button" class="btn btn-success" style="float:right" data-toggle="modal" data-target="#newTopic"> New Topic </button>
+			{% endif %}
+		{% endif %}
+
 		</h3>
 
 		{% for topic in topics %}
@@ -62,9 +69,14 @@
 					</div>
 				</div>
 				<a class="btn btn-primary" href="{{base_path}}/topic/{{topic.id}}" role="button"> Open </a>
-				<form method="post" action="{{base_path}}/remove/{{topic.id}}">
-					<button class="btn btn-danger" role="button" type="submit" style="float:right"> Remove </button>	
-				</form>
+
+				{% if account %}
+					{% if account.ismod %}
+						<form method="post" action="{{base_path}}/remove/{{topic.id}}">
+							<button class="btn btn-danger" role="button" type="submit" style="float:right"> Remove </button>	
+						</form>
+					{% endif %}
+				{% endif %}
 				<div style="padding-bottom: 40px"> </div>
 		</div>
 

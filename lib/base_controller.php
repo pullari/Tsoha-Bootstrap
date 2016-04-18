@@ -4,6 +4,15 @@
 
     public static function get_user_logged_in(){
       // Toteuta kirjautuneen käyttäjän haku tähän
+
+      if(isset($_SESSION['account'])){
+
+        $accountID = $_SESSION['account'];
+        $account = Account::find($accountID);
+
+        return $account;
+      }
+
       return null;
     }
 

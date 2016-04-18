@@ -9,6 +9,7 @@ class GroupController extends BaseController{
 
 	public static function find($id){
 
+		$account = GroupController::get_user_logged_in();
 		$groups = Ryhma::all(); //group dropdown-valikolle
 		$show = Ryhma::find($id);
 		$topics = Topic::findByGroup($id); //haetaan topicit jonka jälkeen haetaan niistä 6 ensimmäistä viestiä ja laitetaan ne omaan taulukkoon joka passataan viewille, jotta voidaan näyttää viestit
@@ -21,7 +22,7 @@ class GroupController extends BaseController{
 			$messages[$topic->id] = $topicsMessages;  //tallennetaan assosiaatiolistaan tunnisteena topicid
 		}
 
-		View::make('ryhma/groupIndex.html', array('groups' => $groups, 'show' => $show, 'topics' => $topics, 'messages' => $messages));
+		View::make('ryhma/groupIndex.html', array('groups' => $groups, 'show' => $show, 'topics' => $topics, 'messages' => $messages, 'account' => $account));
 
 	}
 
