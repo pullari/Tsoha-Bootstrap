@@ -9,7 +9,7 @@
   }
 
   $routes->get('/', function() {
-    HelloWorldController::groups();
+    Redirect::to('/login');
   });
 
   $routes->get('/hiekkalaatikko', function() {

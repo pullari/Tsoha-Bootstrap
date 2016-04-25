@@ -1,0 +1,13 @@
+Järjestelmä noudattaa pitkälti yleistä MVC-mallia. Kansiosta "app" löytyy alakansio jokaiselle näistä ja kansioissa sisällä olevat php ja html -tiedostot ovat ne mitä järjestelmässä käytetään. 
+
+Assets-kansiosta löytyy projektille yhteiset css ja js tiedostot joita on käytetty melko vähän. 
+
+Doc-kansiossa on dokumentaatio.
+
+Lib sisältää pohjat redirectille, kontrollereille, malleille, näkymille ja tietokanta-alustuksen.
+
+SQL-kansiossa on vaaditut sql-lauseet tietokannanalustusta varten.
+
+Projektin root-kansio sisältää riippuvuuksia sekä shell-skriptejä projektin palvelimelle siirtoa varten.
+
+
