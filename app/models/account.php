@@ -51,4 +51,14 @@ class Account extends BaseModel{
 		}
 		return null;
 	}
+
+	public function save(){
+
+		$query = DB::connection()->prepare('INSERT INTO Account(username, password) VALUES (:username, :password) RETURNING id, isMod');
+		$query->execute(array('username' => $this->username, 'password' => $this->password));
+		$row = $query->fetch();
+
+		$this->id = $row['id'];
+		$this->isMod = $row['ismod'];
+	}
 }

@@ -2,7 +2,11 @@
 class AccountController extends BaseController {
 
 	public static function login() {
-		View::make('realLogin.html');
+		View::make('account/realLogin.html');
+	}
+
+	public static function showReg(){
+		View::make('account/register.html');
 	}
 
 	public static function handleLogin() {
@@ -11,7 +15,7 @@ class AccountController extends BaseController {
 		$account = Account::authenticate($params['nickname'], $params['password']);
 
 		if(!$account) {
-			View::make('realLogin.html', array('error' => 'Väärä käyttäjätunnus tai salasana'));
+			View::make('account/realLogin.html', array('error' => 'Väärä käyttäjätunnus tai salasana'));
 		}else{
 			$_SESSION['account'] = $account->id;
 			Redirect::to('/groups/1'); 
@@ -22,5 +26,18 @@ class AccountController extends BaseController {
 
 		$_SESSION['account'] = null;
 		Redirect::to('/login', array('message'=>'Kirjauduttu ulos!'));
+	}
+
+	public static function store() {
+
+		$params = $_POST;
+
+		$acco = new Account(array(
+			'username' => $params['nickname'],
+			'password' => $params['password']
+		));
+
+		$acco->save();
+		Redirect::to('/login', array('message' => 'Käyttäjä lisätty'));
 	}
 }

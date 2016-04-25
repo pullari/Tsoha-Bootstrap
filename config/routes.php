@@ -77,3 +77,11 @@
   $routes->get('/logout',function(){
     AccountController::logout();
   });
+
+  $routes->get('/register',function(){
+    AccountController::showReg();
+  });
+
+  $routes->post('/register', function(){
+    AccountController::store();
+  });
