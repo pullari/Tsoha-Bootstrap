@@ -33,16 +33,19 @@
 							<div class="col-md-7"> {{message.content}} </div>
 							<div class="col-md-2"> {{message.accoid}} </div>
 							<div class="col-md-2"> {{message.posttime}} </div>
+							<div class="col-md-1">
 							{% if account %}
 								{% if account.id == message.accoid %}
 									<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#{{message.id}}"> Edit </button>
+									<div style="padding-bottom: 10px"> </div>
 								{% endif %}
 								{% if account.ismod %}
 									{% if message != messages[0] %}
-										<div class="col-md-1"> <button type="submit" class="btn btn-danger"> Remove </button> </div>
+									    <button type="submit" class="btn btn-danger"> Remove </button>
 									{% endif %}
 								{% endif %}
 							{% endif %}
+							</div>
 						</div>
 					</form>
 

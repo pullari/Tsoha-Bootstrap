@@ -30,6 +30,28 @@ class Account extends BaseModel{
 		return null;
 	}
 
+	public static function findWithName($username) {
+
+		$query = DB::connection()->prepare('SELECT * FROM Account WHERE username = :username LIMIT 1');
+		$query->execute(array('username'=>$username));
+
+		$row = $query->fetch();
+
+		if($row){
+
+			$account = new Account(array(
+
+				'id' => $row['id'],
+				'username' => $row['username'],
+				'password' => $row['password'],
+				'ismod' => $row['ismod']
+			));
+
+			return $account;
+		}
+		return null;
+	}
+
 	public static function authenticate($nick, $pass) {
 
 		$query = DB::connection()->prepare('SELECT * FROM Account WHERE username = :nick AND password = :pass LIMIT 1');
@@ -60,5 +82,25 @@ class Account extends BaseModel{
 
 		$this->id = $row['id'];
 		$this->isMod = $row['ismod'];
+	}
+
+	public static function validateAccess($id) {
+
+		$accountID = $_SESSION['account'];
+		$account = Account::find($accountID);
+		$accountGroups = AccountGroup::findByGroup($id);
+
+		if($account->ismod == true){
+			return true;
+		}
+
+		$isPresent = false;
+
+		foreach ($accountGroups as $AG) {
+			if($AG->accoid == $account->id){
+				$isPresent = true;
+			}
+		}
+		return $isPresent;
 	}
 }

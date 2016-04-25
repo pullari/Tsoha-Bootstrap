@@ -13,6 +13,10 @@
 			{% endfor %}
 
 			</ul>
+			{% if account.ismod %}
+				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#newGroup"> Add group </button>
+			{% endif %}
+
 		</div>
 	<div class="groupView">
 
@@ -32,11 +36,11 @@
 			{% endfor %}
 		{% endif %}
 
-		{% if account %}
+		{% if account and show %}
 			{% if account.ismod %}
 				<a href="{{base_path}}/groups/{{show.id}}/edit"> <button type="submit" class="btn btn-warning" style="float:right"> Edit Group </button> </a>
-				<button type="button" class="btn btn-success" style="float:right" data-toggle="modal" data-target="#newTopic"> New Topic </button>
 			{% endif %}
+			<button type="button" class="btn btn-success" style="float:right" data-toggle="modal" data-target="#newTopic"> New Topic </button>
 		{% endif %}
 
 		</h3>
@@ -68,15 +72,19 @@
 					{% endfor %}
 					</div>
 				</div>
-				<a class="btn btn-primary" href="{{base_path}}/topic/{{topic.id}}" role="button"> Open </a>
-
-				{% if account %}
-					{% if account.ismod %}
-						<form method="post" action="{{base_path}}/remove/{{topic.id}}">
-							<button class="btn btn-danger" role="button" type="submit" style="float:right"> Remove </button>	
-						</form>
-					{% endif %}
-				{% endif %}
+				
+				<div class="row">
+					<div class="col-md-2"> <a class="btn btn-primary" href="{{base_path}}/topic/{{topic.id}}" role="button"> Open </a> </div>
+					<div class="col-md-2" style="float:right">
+						{% if account %}
+							{% if account.ismod %}
+								<form method="post" action="{{base_path}}/remove/{{topic.id}}">
+									<button class="btn btn-danger" type="submit" style="float:right"> Remove </button>	
+								</form>
+							{% endif %}
+						{% endif %}
+					</div>
+				</div>
 				<div style="padding-bottom: 40px"> </div>
 		</div>
 
@@ -92,6 +100,24 @@
 								<textarea class="form-control" rows="10" id="topic" name="topicContent"></textarea>
 								<div class="modal-footer">
 									<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send"></span> Send </button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="newGroup" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<form role="form" method="post" action="{{base_path}}/addGroup">
+							<div class="form-group">
+								<label for="message"> Group name: </label>
+								<input class="form-control" rows="10" id="group" name="groupName"></input>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send"></span> Add </button>
 								</div>
 							</div>
 						</form>

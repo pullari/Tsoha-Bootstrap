@@ -8,10 +8,6 @@ class Message extends BaseModel{
 		$this->validators = array('messageValidate');
 	}
 
-	public static function echoName(){
-		return 'name';
-	}
-
 	public static function all(){
 
 		$query = DB::connection()->prepare('SELECT * FROM Message');
@@ -87,8 +83,8 @@ class Message extends BaseModel{
 
 	public function save(){
 
-		$query = DB::connection()->prepare('INSERT INTO Message(topicid, accoid, content) VALUES (:topicid, 1, :content) RETURNING id, posttime');
-		$query->execute(array('topicid' => $this->topicid, 'content' => $this->content));
+		$query = DB::connection()->prepare('INSERT INTO Message(topicid, accoid, content) VALUES (:topicid, :accoid, :content) RETURNING id, posttime');
+		$query->execute(array('topicid' => $this->topicid, 'content' => $this->content, 'accoid'=> $this->accoid));
 		$row = $query->fetch();
 
 		$this->id = $row['id'];

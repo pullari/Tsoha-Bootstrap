@@ -18,7 +18,7 @@ class AccountController extends BaseController {
 			View::make('account/realLogin.html', array('error' => 'Väärä käyttäjätunnus tai salasana'));
 		}else{
 			$_SESSION['account'] = $account->id;
-			Redirect::to('/groups/1'); 
+			Redirect::to('/groups'); 
 		}
 	}
 

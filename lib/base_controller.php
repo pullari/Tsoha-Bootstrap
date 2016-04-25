@@ -24,4 +24,26 @@
         Redirect::to('/login', array('message'=>'Kirjaudu sisään, päästäksesi sivulle.'));
       }
     }
+
+    public static function check_if_mod() {
+
+      if(isset($_SESSION['account'])){
+
+        $accountID = $_SESSION['account'];
+        $account = Account::find($accountID);
+
+        if($account->ismod == false){
+          Redirect::to('/groups', array('message'=>'Yrittämäsi operaatio on vain moderaattoreille'));
+        }
+      }
+    }
+
+    public static function validateAccountAccess($id) {
+
+      $isPresent = Account::validateAccess($id);
+
+      if($isPresent == false){
+        Redirect::to('/groups', array('message'=>'Ei pääsyä ryhmään'));
+      }
+    }
   }

@@ -19,11 +19,12 @@ class TopicController extends BaseController{
 	public static function store($id) {
 
 		$params = $_POST;
+		$acco = TopicController::get_user_logged_in();
 
 		$message = new Message(array(
 			'topicid' => $id,
 			'content' => $params['content'],
-			'accoid' => 1   //accoid on vielä kovakoodattu koska sisäänkirjautumista ei ole tehty
+			'accoid' => $acco->id   //accoid on vielä kovakoodattu koska sisäänkirjautumista ei ole tehty
 		));
 
 		$errors = $message->errors();
