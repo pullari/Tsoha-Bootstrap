@@ -54,7 +54,7 @@ class Message extends BaseModel{
 
 	public static function findAllFromTopic($id){
 
-		$query = DB::connection()->prepare('SELECT * FROM Message WHERE topicID = :id');
+		$query = DB::connection()->prepare('SELECT * FROM Message WHERE topicID = :id ORDER BY posttime');
 		$query->execute(array('id' => $id));
 
 		$rows = $query->fetchAll();
@@ -92,6 +92,16 @@ class Message extends BaseModel{
 		$row = $query->fetch();
 
 		$this->id = $row['id'];
+		$this->posttime = $row['posttime'];
+	}
+
+	public function update(){
+
+		$query = DB::connection()->prepare('UPDATE Message SET content = :content, posttime = NOW() WHERE id = :id RETURNING posttime');
+		$query->execute(array('id'=>$this->id, 'content'=>$this->content));
+
+		$row = $query->fetch();
+
 		$this->posttime = $row['posttime'];
 	}
 

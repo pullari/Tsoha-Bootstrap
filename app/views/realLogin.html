@@ -8,6 +8,12 @@
 		</div>
   	  {% endif %}
 
+  	  {% if message %}
+  	  	<div class="alert alert-success">
+			{{message}}
+		</div>
+  	  {% endif %}
+
 	  <form class="signform" method="post" action="{{base_path}}/login">
 	  		<h2 class="text-center"> Sign in information </h2>
 	  		<label for="nickname" class="sr-only"> nick </label>

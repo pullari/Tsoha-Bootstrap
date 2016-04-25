@@ -40,19 +40,28 @@
           <ul class="nav navbar-nav">
             <!-- Navigaation linkit -->
             <li> 
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="groupMenu" data-toggle="dropdown"> Suunnitelmat <span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="Groups">
-                <li> <a role="menuitem" tabindex="1" href="{{base_path}}/login"> Login </a></li>
-                <li> <a role="menuitem" tabindex="2" href="{{base_path}}/groupsTest"> Groups </a></li>
-                <li> <a role="menuitem" tabindex="3"  href="{{base_path}}/topicTest"> Topic </a></li>
-                <li> <a role="menuitem" tabindex="4" href="{{base_path}}/edit"> Edit Group </a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" id="groupMenu" data-toggle="dropdown"> Suunnitelmat <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="Groups">
+                    <li> <a role="menuitem" tabindex="2" href="{{base_path}}/groupsTest"> Groups </a></li>
+                    <li> <a role="menuitem" tabindex="3"  href="{{base_path}}/topicTest"> Topic </a></li>
+                    <li> <a role="menuitem" tabindex="4" href="{{base_path}}/edit"> Edit Group </a></li>
                 </ul>
-              </div>
+              </li>
+
               <li> <a href="{{base_path}}/groups/1"> Groups </a></li>
               <li> <a href="{{base_path}}/topic/1"> Topic </a></li>
               <li> <a href="{{base_path}}/groups/1/edit"> Edit Group </a></li>
             </li>
+            {% if user_logged_in %}
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{base_path}}/logout">Logout</a></li>
+              </ul>
+            {% else %}
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{base_path}}/login">Login</a></li>
+              </ul>
+            {% endif %}
           </ul>
         </div>
       </div>

@@ -17,4 +17,10 @@ class AccountController extends BaseController {
 			Redirect::to('/groups/1'); 
 		}
 	}
+
+	public static function logout() {
+
+		$_SESSION['account'] = null;
+		Redirect::to('/login', array('message'=>'Kirjauduttu ulos!'));
+	}
 }

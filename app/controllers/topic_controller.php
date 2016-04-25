@@ -37,6 +37,27 @@ class TopicController extends BaseController{
 		}
 	}
 
+	public static function updateMessage($id) {
+
+		$params = $_POST;
+
+		$message = new Message(array(
+			'id' => $id,
+			'topicid' => $params['topicid'],
+			'content' => $params['content']
+		));
+
+		$errors = $message->errors();
+
+		if(count($errors) == 0){
+			$message->update();
+			Redirect::to('/topic/' . $message->topicid, array('message' => 'päivitetty'));
+		}else{
+			Redirect::to('/topic/' . $message->topicid, array('errors' => $errors));
+		}
+
+	}
+
 	public static function removeMessage($id) {
 
 		$message = new Message(array(
