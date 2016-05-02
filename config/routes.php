@@ -82,7 +82,7 @@
     TopicController::removeMessage($id);
   });
 
-  $routes->post('/edit/:id', 'check_logged_in', 'is_mod', function($id){
+  $routes->post('/edit/:id', 'check_logged_in', function($id){
     TopicController::updateMessage($id);
   });
 

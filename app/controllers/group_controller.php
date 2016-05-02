@@ -114,7 +114,7 @@ class GroupController extends BaseController{
 		));
 
 		$group::destroy($id);
-		Redirect::to('/groups/', array('message'=>'Ryhmä poistettu onnistuneesti'));
+		Redirect::to('/groups', array('message'=>'Ryhmä poistettu onnistuneesti'));
 	}
 
 	public static function removeTopic($id) {
