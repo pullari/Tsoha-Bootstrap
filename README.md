@@ -9,6 +9,15 @@ Yleisiä linkkejä:
 * [Linkki yksittäisen topicin sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/topic)
 * [Linkki ryhmän muokkaus sivulle](http://samrouvi.users.cs.helsinki.fi/foorumi/edit)
 * Sivut löytyvät myös foorumin navbarista
+ 
+Tunnuksia sivulle:
+
+moderaattorit:
+username: jasjok   password: 1234
+
+muut:
+username: minjok   password: 4321
+usernmae: kukmuumuk password: asd
 
 ## Työn aihe
 
