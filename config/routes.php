@@ -54,6 +54,10 @@
     GroupController::addNew();
   });
 
+  $routes->get('/groups/:id/removeGroup', 'check_logged_in', 'is_mod',function($id){
+    GroupController::removeGroup($id);
+  });
+
   $routes->post('/groups/:id', 'check_logged_in', function($id){
     GroupController::store($id);
   });

@@ -34,6 +34,10 @@ class GroupController extends BaseController{
 			
 			$topicsMessages = Message::findAllFromTopic($topic->id);
 			$messages[$topic->id] = $topicsMessages;  //tallennetaan assosiaatiolistaan tunnisteena topicid
+
+			foreach ($topicsMessages as $mes) {
+				$mes->timeForm(); //formatoidaan vielä messagen aikaleima mukavempaan muotoon
+			}
 		}
 
 		if($show){
@@ -101,6 +105,16 @@ class GroupController extends BaseController{
 
 		$group->save();
 		Redirect::to('/groups', array('message'=>'Uusi ryhmä lisätty'));
+	}
+
+	public static function removeGroup($id) {
+
+		$group = new Ryhma(array(
+			'id' => $id
+		));
+
+		$group::destroy($id);
+		Redirect::to('/groups/', array('message'=>'Ryhmä poistettu onnistuneesti'));
 	}
 
 	public static function removeTopic($id) {

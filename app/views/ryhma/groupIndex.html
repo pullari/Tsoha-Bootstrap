@@ -2,7 +2,6 @@
 {% block content %}
 
 	<div class="container"> 
-		<p> Tähän näkymään tulee dropdown valikko, josta valitset jonkin ryhmistä johon kuulut. Valinnan tehtyäsi alas tulostaa ryhmän topicit (esim aakkosjärjestksessä ja korkeintaan 10 kerrallaan. Alas tulee valikko josta voi valita seuraavat 10). Yhdestä topicista Näytetään 5 uusinta viestiä ja ainakin kirjoittaja ja aikaleima. Mahdollisesti myös onko käyttäjä sen lukenut. Topicin alapuolella on open-nappi joka ohjaa topiciin, jossa näytetään kaikki viestit (tai esim. 10 ensimmäistä ja valikko) ja jossa topiciin voi vastata. New Topic -nappi on myös näkyvissä kaikille ja sillä saa luotua uuden topicin (lisään bootstrap Modal-ikkunan). Remove-nappi poistaa koko topicin ja se tulee käyttöön vain mikäli sikäli käyttäjä on moderaattori. Edit Group -nappi on myös näkyvillä vain modeille ja se vie omalle sivulleen.</p>
 		<div class="dropdown">
 			<button class="btn btn-default dropdown-toggle" type="button" id="groupMenu" data-toggle="dropdown"> Groups <span class="caret"></span></button>
 			
@@ -52,7 +51,7 @@
 					<div class="panel-heading">
 						<div class="row" style="padding: 20px 0px 20px 0px">
 							<div class="col-md-7"> {{messages[topic.id][0].content}} </div>
-							<div class="col-md-2"> Writer </div>
+							<div class="col-md-2"> {{messages[topic.id][0].getWriter().username}} </div>
 							<div class="col-md-2"> {{messages[topic.id][0].posttime}} </div>
 							<div class="col-md-1"> </div>
 						</div>
@@ -63,8 +62,8 @@
 					{% for message in messages[topic.id] %}
 						{% if message != messages[topic.id][0] %}
 						<div class="row" style="padding: 20px 0px 20px 0px; border-bottom: 1px solid">
-							<div class="col-md-7"> {{message.content}}</div>
-							<div class="col-md-2"> Writer </div>
+							<div class="col-md-7"> {{message.content}} </div>
+							<div class="col-md-2"> {{message.getWriter().username}} </div>
 							<div class="col-md-2"> {{message.posttime}} </div>
 							<div class="col-md-1"> </div>
 						</div>

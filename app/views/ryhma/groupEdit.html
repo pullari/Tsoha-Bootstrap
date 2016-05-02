@@ -2,8 +2,6 @@
 {% block content %}
 
 	<div class="container"> 
-		<p> Tälle sivulle pääsee vain moderaattori. Sivulle tulostetaan kaikki ryhmän jäsenet ja halutessaan mode voi valita jäseniä ja poistaa yksittäisiä ryhmästä, tai sitten Remove Group -napilla poistaa koko ryhmän</p>
-
 		{% if message %}
 			<div class="alert alert-success">
 				{{message}}
@@ -17,7 +15,7 @@
 		{% endif %}
 
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newGroupMember"> Add new </button> 
-		<button type="submit" class="btn btn-danger" style="float:right"> Remove Group </button>
+		<a type="button" href="{{base_path}}/groups/{{groupid}}/removeGroup" class="btn btn-danger" style="float:right"> Remove Group </a>
 
 		<form method="post" action="{{base_path}}/groups/{{groupid}}/edit/removeSelected">
 			<input type="hidden" name="groupid" value="{{groupid}}"> </input>

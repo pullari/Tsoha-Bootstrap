@@ -65,6 +65,13 @@ class Ryhma extends BaseModel{
 		return null;
 	}
 
+	public static function destroy($id){
+
+		$query = DB::connection()->prepare('DELETE FROM Ryhma WHERE id = :id');
+		$query->execute(array('id' => $id));
+		$row = $query->fetch();
+	}
+
 	public function save() {
 
 		$query = DB::connection()->prepare('INSERT INTO Ryhma(name) VALUES (:name) RETURNING id');

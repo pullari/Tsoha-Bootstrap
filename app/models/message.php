@@ -91,7 +91,7 @@ class Message extends BaseModel{
 		$this->posttime = $row['posttime'];
 	}
 
-	public function update(){
+	public function update() {
 
 		$query = DB::connection()->prepare('UPDATE Message SET content = :content, posttime = NOW() WHERE id = :id RETURNING posttime');
 		$query->execute(array('id'=>$this->id, 'content'=>$this->content));
@@ -101,10 +101,22 @@ class Message extends BaseModel{
 		$this->posttime = $row['posttime'];
 	}
 
-	public function messageValidate(){
+	public function messageValidate() {
 
 		$errors = array();
 		$errors = parent::validateString($this->content, '5');
 		return $errors;
+	}
+
+	public function getWriter() {
+
+		$acco = Account::find($this->accoid);
+		return $acco;
+	}
+
+	public function timeForm() {
+
+		$date = date_create($this->posttime);
+		$this->posttime = $date->format('Y-m-d H:i:s');
 	}
 }

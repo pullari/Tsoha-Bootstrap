@@ -13,6 +13,11 @@ class TopicController extends BaseController{
 
 		$account = TopicController::get_user_logged_in();
 		$messages = Message::findAllFromTopic($id);
+
+		foreach ($messages as $mes) {
+			$mes->timeForm();
+		}
+
 		View::make('topic/index.html', array('messages' => $messages, 'account' => $account));
 	}
 
@@ -24,7 +29,7 @@ class TopicController extends BaseController{
 		$message = new Message(array(
 			'topicid' => $id,
 			'content' => $params['content'],
-			'accoid' => $acco->id   //accoid on vielä kovakoodattu koska sisäänkirjautumista ei ole tehty
+			'accoid' => $acco->id
 		));
 
 		$errors = $message->errors();
