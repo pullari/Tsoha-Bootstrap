@@ -1,10 +1,9 @@
 Tunnukset:
-Moderaattori= tunnus:pullis
+Moderaattori= tunnus:jasjok
 			  salasana: 1234
 
-Ei moderaattori= tunnus: eriksi
+Ei moderaattori= tunnus: minjok
 				 salasana: 4321
 
 Kirjautumaan pääsee tunnuksessa: http://samrouvi.users.cs.helsinki.fi/foorumi/login
-tai jos hakee suunnitelmista kohdan "login". Tunnustautuessa näkee eri näkymät joissa
-lähes jokaiseen on toteutettu jokainen nappi, mikä näkyvillä on
+tai jos hakee suunnitelmista kohdan "login". Tunnustautuessa näkee eri näkymät ja toimintoja varten asetetut napit. Yleisesti ottaen napit on nimetty kuvaavasti.

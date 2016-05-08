@@ -1,0 +1,1 @@
+Sovelluksen voi asentaa uudelleen eri ympäristöön kopioimalla kaikki tiedostot ympäristön kansiohakemistoon ja asettamalla config-kansion environment.sh tiedostoon oikeat yhteystiedot.
