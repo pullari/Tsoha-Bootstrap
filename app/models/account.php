@@ -8,6 +8,28 @@ class Account extends BaseModel{
 		parent::__construct($attributes);
 	}
 
+	public static function all() {
+
+		$query = DB::connection()->prepare('SELECT * FROM Account');
+		$query->execute();
+
+		$rows = $query->fetchAll();
+		$accounts = array();
+
+		foreach ($rows as $row) {
+			
+			$accounts[] = new Account(array(
+
+				'id' => $row['id'],
+				'username' => $row['username'],
+				'password' => $row['password'],
+				'ismod' => $row['ismod']
+			));
+		}
+
+		return $accounts;
+	}
+
 	public static function find($id){
 
 		$query = DB::connection()->prepare('SELECT * FROM Account WHERE id = :id LIMIT 1');
@@ -82,6 +104,13 @@ class Account extends BaseModel{
 
 		$this->id = $row['id'];
 		$this->isMod = $row['ismod'];
+	}
+
+	public function destroy(){
+
+		$query = DB::connection()->prepare('DELETE FROM Account WHERE id = :id');
+		$query->execute(array('id' => $this->id));
+		$row = $query->fetch();
 	}
 
 	public static function validateAccess($id) {

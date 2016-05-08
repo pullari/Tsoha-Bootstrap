@@ -9,6 +9,12 @@ class AccountController extends BaseController {
 		View::make('account/register.html');
 	}
 
+	public static function showEdit() {
+
+		$accounts = account::all();
+		View::make('account/edit.html', array('accounts' => $accounts));
+	}
+
 	public static function handleLogin() {
 		$params = $_POST;
 
@@ -39,5 +45,42 @@ class AccountController extends BaseController {
 
 		$acco->save();
 		Redirect::to('/login', array('message' => 'Käyttäjä lisätty'));
+	}
+
+	public static function removeAccount($id) {
+
+		$acco = new Account(array(
+			'id' => $id
+		));
+
+		$acco->destroy();
+		Redirect::to('/accounts', array('message' => 'Käyttäjä poistettu'));
+	}
+
+	public static function removeAccounts() {
+
+		$params = $_POST;
+		$remove = array();
+
+		if(isset($params['chkbox'])){
+			foreach ($params['chkbox'] as $chosen) {  //luodaan kaikki accountGroupit jotka sitten poistetaan
+				$remove[] = new Account(array(
+					'id' => $chosen['id'],
+					'username' => $chosen['username'],
+					'password' => $chosen['password'],
+					'ismod' => $chosen['ismod']
+				));
+			}
+
+			Kint::dump($remove);
+
+			foreach ($remove as $acc) {
+				$acc->destroy();
+			}
+
+			Redirect::to('/accounts', array('message' => 'Käyttäjät poistettu onnistuneesti')); 
+		}else{
+			Redirect::to('/accounts', array('error' => 'Valitse poistettavat')); 
+		}
 	}
 }

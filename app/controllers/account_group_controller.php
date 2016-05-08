@@ -31,9 +31,7 @@ class AccountGroupController extends BaseController{
 					'groupid' => (int)$params['groupid']
 				));
 			}
-
-			Kint::dump($remove);
-
+			
 			foreach ($remove as $fromGroup) {
 				$fromGroup->destroy();
 			}
@@ -42,6 +40,5 @@ class AccountGroupController extends BaseController{
 		}else{
 			Redirect::to('/groups/' . (int)$params['groupid'] . '/edit', array('error' => 'Valitse poistettavat')); 
 		}
-		
 	}
 }

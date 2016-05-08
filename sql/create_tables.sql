@@ -30,6 +30,6 @@ CREATE TABLE Message(
 	id SERIAL PRIMARY KEY,
 	postTime timestamp DEFAULT now(),
 	topicID INTEGER REFERENCES Topic(id) ON DELETE CASCADE,
-	accoID INTEGER REFERENCES Account(id),
+	accoID INTEGER REFERENCES Account(id) ON DELETE CASCADE,
 	content varchar(400) NOT NULL
 );

@@ -86,6 +86,14 @@
     TopicController::updateMessage($id);
   });
 
+  $routes->get('/accounts', 'check_logged_in', 'is_mod', function(){
+    AccountController::showEdit();
+  });
+
+  $routes->post('/accounts', 'check_logged_in', 'is_mod', function(){
+    AccountController::removeAccounts();
+  });
+
   $routes->get('/login', function(){
     AccountController::login();
   });
