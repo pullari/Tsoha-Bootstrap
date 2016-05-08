@@ -22,7 +22,7 @@
 
   <body>
 
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-inverse" role="navigation">
       <div class="container-fluid">
 
         <div class="navbar-header">
@@ -64,6 +64,11 @@
               </ul>
             {% endif %}
           </ul>
+          {% if user_logged_in %}
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{base_path}}/remAcc">Remove account</a></li> 
+            </ul>
+          {% endif %}
         </div>
       </div>
     </nav>

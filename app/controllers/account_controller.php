@@ -47,14 +47,12 @@ class AccountController extends BaseController {
 		Redirect::to('/login', array('message' => 'Käyttäjä lisätty'));
 	}
 
-	public static function removeAccount($id) {
+	public static function removeAccount() {
 
-		$acco = new Account(array(
-			'id' => $id
-		));
+		$acco = AccountController::get_user_logged_in();
 
 		$acco->destroy();
-		Redirect::to('/accounts', array('message' => 'Käyttäjä poistettu'));
+		Redirect::to('/login', array('message' => 'Käyttäjä poistettu'));
 	}
 
 	public static function removeAccounts() {

@@ -72,7 +72,6 @@ class GroupController extends BaseController{
 
 		GroupController::validateAccountAccess($id);
 
-
 		$dummyMessage = new Message(array(        //koska messagen luonti luottaa siihen että topic on jo luotu
 			'content' => $params['topicContent']  //emmekä halua tyhjjiä topiceja luomme viestistä tyngän jossa
 		));										  //on vain virheen tarkistuksen kannalta olennainen osa
@@ -82,12 +81,13 @@ class GroupController extends BaseController{
 		}else{
 
 			$topic->save();
+			$poster = GroupController::get_user_logged_in();
 
 			$message =  new Message(array(
 
 				'topicid' => $topic->id,
 				'content' => $params['topicContent'],
-				'accoid' => 1   //accoid on vielä kovakoodattu koska sisäänkirjautumista ei ole tehty
+				'accoid' => $poster->id  
 			));
 
 			$message->save();

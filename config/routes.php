@@ -113,3 +113,7 @@
   $routes->post('/register', function(){
     AccountController::store();
   });
+
+  $routes->get('/remAcc', function(){
+    AccountController::removeAccount();
+  });
