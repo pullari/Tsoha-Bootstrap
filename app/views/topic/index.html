@@ -35,7 +35,10 @@
 							{% if account %}
 								{% if account.id == message.accoid %}
 									<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#{{message.id}}"> Edit </button>
-									<div style="padding-bottom: 10px"> </div>
+									{% if account.ismod == false %}
+										<button type="submit" class="btn btn-danger"> Remove </button>
+										<div style="padding-bottom: 10px"> </div>
+									{% endif %}
 								{% endif %}
 								{% if account.ismod %}
 									{% if message != messages[0] %}

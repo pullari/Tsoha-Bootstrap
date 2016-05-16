@@ -78,7 +78,7 @@
     GroupController::removeTopic($id);
   });
 
-  $routes->post('/removeMessage/:id', 'check_logged_in', 'is_mod', function($id){
+  $routes->post('/removeMessage/:id', 'check_logged_in', function($id){
     TopicController::removeMessage($id);
   });
 
